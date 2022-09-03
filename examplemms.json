@@ -1,0 +1,45 @@
+{
+  "data": {
+    "id": "mdr2-xxxxxxxxx",
+    "type": "message",
+    "attributes": {
+      "amount_display": "$0.0195",
+      "amount_nanodollars": 19500000,
+      "body": null,
+      "delivery_receipts": [],
+      "direction": "inbound",
+      "from": "12345678900",
+      "is_mms": true,
+      "message_encoding": 0,
+      "message_type": "longcode",
+      "status": "",
+      "timestamp": "2022-09-03T20:40:11.00Z",
+      "to": "1234567890"
+    },
+    "relationships": {
+      "media": {
+        "data": [
+          {
+            "id": "xxxxxxx-1",
+            "type": "media"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "xxxxxxxx-1",
+      "type": "media",
+      "attributes": {
+        "file_name": "image000000.png",
+        "file_size": 14832,
+        "mime_type": "image/png",
+        "url": "https://s3.us-west-2.amazonaws.com/flowroute-messaging-media/xxxxxxxxx"
+      },
+      "links": {
+        "self": "https://api.flowroute.com/v2.2/media/xxxxxxxx-1"
+      }
+    }
+  ]
+}
