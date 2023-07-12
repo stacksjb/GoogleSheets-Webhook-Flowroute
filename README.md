@@ -5,6 +5,8 @@ See https://developer.flowroute.com/api/messages/v2.1/receive-an-sms/ and https:
 
 Note that SMS comes through in standard format (same fields each time), MMS includes all those plus each attachment or item in an array.
 
+Keep in mind that in the case of MMS, attachments are forwarded with a link to a temporary S3 bucket. This link is non-permanent and expires (usually after ~7 days).
+
 The latest example includes email notification codes
 
 
