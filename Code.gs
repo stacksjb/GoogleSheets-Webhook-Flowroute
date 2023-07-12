@@ -13,6 +13,7 @@ function doPost(e) {
   var webhook_timestamp = new Date()
   var sheet
   var lastRow
+  var email_notify_recipients = "notifyxxx.com";
  try {
   var body = attributes.body
   var direction = attributes.direction
@@ -34,7 +35,6 @@ function doPost(e) {
 
  }
 
-
   finally {
  if (mms == false) {
   sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("SMS")
@@ -48,6 +48,7 @@ function doPost(e) {
   sheet.getRange(lastRow + 1, 6).setValue(message_type)
   sheet.getRange(lastRow + 1, 7).setValue(timestamp)
   sheet.getRange(lastRow + 1, 8).setValue(body)
+  msgbody = body
  }
  if (mms == true) {
   sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("MMS")
@@ -63,9 +64,12 @@ function doPost(e) {
   sheet.getRange(lastRow + 1, 8).setValue(body)
   sheet.getRange(lastRow + 1, 9).setValue(mime_type)
   sheet.getRange(lastRow + 1, 10).setValue(file_size)
-  sheet.getRange(lastRow + 1, 10).setValue(file_name)
-  sheet.getRange(lastRow + 1, 11).setValue(url)
+  sheet.getRange(lastRow + 1, 11).setValue(file_name)
+  sheet.getRange(lastRow + 1, 12).setValue(url)
+  msgbody = 'MMS URL: ' + url
  }
+  var email_notify_subject = 'New Message Received at: ' + timestamp + 'From:' + from ;
+  MailApp.sendEmail(email_notify_recipients,email_notify_subject, msgbody);
   SpreadsheetApp.flush()
   return HtmlService.createHtmlOutput("post request received")
    }
