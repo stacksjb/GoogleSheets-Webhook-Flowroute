@@ -7,6 +7,10 @@ Note that SMS comes through in standard format (same fields each time), MMS incl
 
 Keep in mind that in the case of MMS, attachments are forwarded with a link to a temporary S3 bucket. This link is non-permanent and expires (usually after ~7 days).
 
-The latest example includes email notification codes
+Ensure you update the email notification parameters, if needed
+
+Credits for inspiration and code happily stolen from:
+https://stackoverflow.com/questions/34516970/google-sheets-scripts-email-notifications-when-changes-made-in-a-specific-sheet
+
 
 
